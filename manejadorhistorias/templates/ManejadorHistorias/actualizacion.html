@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>Ingrese el id de la historia que quiera editar y en los campos correspondientes ingrese el nuevo valor que quiere agregar</p>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+      </div>
+    {% endfor %}
+    <button type="submit">Enviar</button>
+  </form>
+  {% endblock %}
